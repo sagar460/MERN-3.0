@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.json({
-    message: "This is About Page",
+    message: "This is About Page only",
   });
 });
 
