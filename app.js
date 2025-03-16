@@ -1,5 +1,10 @@
+require("dotenv").config();
 const express = require("express");
+const connectToDatabase = require("./database");
+const { config } = require("dotenv");
+
 const app = express();
+connectToDatabase();
 
 app.get("/", (req, res) => {
   res.json({
@@ -8,11 +13,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.json({
+  res.status(200).json({
     message: "This is About Page only",
   });
 });
 
-app.listen(2000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Nodejs project has been started");
 });
